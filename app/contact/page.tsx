@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
+import { MapPin, Github, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -12,14 +12,13 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [glow, setGlow] = useState({ x: 0, y: 0 });
 
-  const EMAILJS_SERVICE_ID = "portafolio_Mail_service";
-  const EMAILJS_TEMPLATE_ID = "template_03h2whd";
-  const EMAILJS_PUBLIC_KEY = "CeKnmQLrJHYeErPCb";
+  // Variables de entorno protegidas
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +26,6 @@ export default function Contact() {
     setSubmitStatus("idle");
 
     try {
-      // Enviar email usando EmailJS
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -35,7 +33,6 @@ export default function Contact() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: "carrascocampos.na@gmail.com", // Tu email
         },
         EMAILJS_PUBLIC_KEY,
       );
@@ -68,23 +65,11 @@ export default function Contact() {
   }, []);
 
   const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "carrascocampos.na@gmail.com",
-      href: "mailto:carrascocampos.na@gmail.com",
-    },
-    {
-      icon: Phone,
-      label: "Teléfono",
-      value: "+56 9 XXXXXXX",
-      href: "tel:+569XXXXXXX",
-    },
-    { icon: MapPin, label: "Ubicación", value: "Chile", href: "#" },
+    { icon: MapPin, label: "Ubicación", value: "Santiago, Chile" },
   ];
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com" },
+    { icon: Github, label: "GitHub", href: "https://github.com/tu-usuario" },
     {
       icon: Linkedin,
       label: "LinkedIn",
@@ -176,7 +161,6 @@ export default function Contact() {
                 />
               </label>
 
-              {/* Mensajes de estado */}
               {submitStatus === "success" && (
                 <div className="text-green-400 text-sm border border-green-500/30 bg-green-500/10 rounded p-3">
                   ✓ Mensaje enviado correctamente
@@ -211,13 +195,12 @@ export default function Contact() {
                   {contactInfo.map((info, i) => {
                     const Icon = info.icon;
                     return (
-                      <motion.a
+                      <motion.div
                         key={info.label}
-                        href={info.href}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
-                        className="flex items-center gap-4 border border-purple-900/60 bg-purple-950/20 hover:bg-purple-800/20 hover:border-purple-500/60 transition-colors rounded-lg p-3"
+                        className="flex items-center gap-4 border border-purple-900/60 bg-purple-950/20 rounded-lg p-3"
                       >
                         <Icon className="text-purple-400" size={20} />
                         <span className="text-sm">
@@ -226,7 +209,7 @@ export default function Contact() {
                           </span>{" "}
                           {info.value}
                         </span>
-                      </motion.a>
+                      </motion.div>
                     );
                   })}
                 </div>
