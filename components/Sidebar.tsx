@@ -38,9 +38,9 @@ export default function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Nath_Devs
+            Nath_Dev
           </motion.h1>
-          <p className="text-sm text-[#D9C7A2]/70 mt-2">Desarrollador Web</p>
+          <p className="text-sm text-[#D9C7A2]/70 mt-2">CloudWeb Developer</p>
         </div>
 
         <nav className="flex-1 px-4">
