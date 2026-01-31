@@ -1,52 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Palette, Rocket, Users,Shield,Cloud } from "lucide-react";
+import { Code2, Palette, Rocket, Users, Shield, Cloud } from "lucide-react";
 import Image from "next/image";
 
 const skills = [
   {
     name: "Frontend",
     icon: Code2,
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS","Vue.js" ,"javaScript"],
   },
   {
     name: "Backend",
     icon: Rocket,
-    items: ["Node.js", "Python", "PostgreSQL", "API REST"],
-  },
-  {
-    name: "Diseño",
-    icon: Palette,
-    items: ["Figma", "UI/UX", "Responsive Design", "Wireframing"],
+    items: ["Node.js", "Python", "PostgreSQL", "API REST", "Express.js"],
   },
   {
     name: "Soft Skills",
     icon: Users,
-    items: ["Trabajo en equipo", "Comunicación", "Liderazgo", "Creatividad"],
+    items: ["Trabajo en equipo", "Comunicación", "Liderazgo", "Creatividad", "Relatorias técnicas clouds"],
   },
- {
-  name: "Cloud Computing",
-  icon: Cloud,
-  items: [
-    "AWS Certified Cloud Practitioner",
-    "AWS Solutions Architect Associate (AWS Academy Graduate)",
-    "Diseño de arquitecturas cloud escalables",
-    "Buenas prácticas de seguridad en la nube",
-    "Trabajo colaborativo y liderazgo técnico"
-  ],
-},
-{
-  name: "Security Fundamentals",
-  icon: Shield,
-  items: [
-    "Escaneo básico de puertos y análisis de exposición",
-    "Aplicación de reglas de control de acceso (IAM, security groups)",
-    "Principios de mínimo privilegio",
-    "Monitoreo básico de eventos y actividad",
-    "Buenas prácticas de hardening en entornos cloud"
-  ],
-},
+  {
+    name: "Cloud Computing",
+    icon: Cloud,
+    items: [
+      "AWS Certified Cloud Practitioner",
+      "AWS Solutions Architect Associate (AWS Academy Graduate)",
+      "Diseño de arquitecturas cloud escalables",
+      "Buenas prácticas de seguridad en la nube",
+      "Trabajo colaborativo y liderazgo técnico",
+    ],
+  },
+  {
+    name: "Security Fundamentals",
+    icon: Shield,
+    items: [
+      "Escaneo básico de puertos y análisis de exposición",
+      "Aplicación de reglas de control de acceso (IAM, security groups)",
+      "Principios de mínimo privilegio",
+      "Monitoreo básico de eventos y actividad",
+      "Buenas prácticas de hardening en entornos cloud",
+    ],
+  },
 ];
 
 export default function About() {
@@ -59,7 +54,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Sobre <span className="text-[#D9C7A2]">Mí</span>
+            Who<span className="text-[#D9C7A2]">ami</span>
           </h1>
           <div className="w-20 h-1 bg-[#3E2C20] mb-12" />
         </motion.div>
@@ -90,32 +85,23 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-white/80 leading-relaxed">
-              Soy desarrolladora web apasionada por crear soluciones digitales
-              funcionales y bien diseñadas. Me motiva transformar ideas en
-              aplicaciones modernas, poniendo especial atención en la
-              experiencia de usuario y la calidad del código.
+            Soy desarrolladora web enfocada en crear aplicaciones funcionales, mantenibles y bien estructuradas, cuidando tanto la experiencia de usuario como la calidad del código.
             </p>
 
             <p className="text-lg text-white/80 leading-relaxed">
-              Tengo cerca de dos años de experiencia trabajando con tecnologías
-              cloud y más de un año liderando y acompañando equipos de estudio y
-              trabajo técnico. Actualmente soy graduada del programa AWS Academy
-              en arquitectura de soluciones, lo que me ha permitido fortalecer
-              mis bases en buenas prácticas y diseño de soluciones escalables.
+              Tengo cerca de dos años de experiencia trabajando con tecnologías cloud, principalmente en AWS, y formación en arquitectura de soluciones a través de AWS Academy. He trabajado con buenas prácticas de diseño, escalabilidad y uso eficiente de servicios cloud.
             </p>
 
             <p className="text-lg text-white/80 leading-relaxed">
-              Me encuentro en constante aprendizaje, profundizando en
-              ciberseguridad y entornos multinube. Participo activamente en
-              grupos de estudio, donde comparto conocimientos y aprendo de otras
-              personas del área. Me caracterizo por mis ganas de crecer, mi
-              compromiso y mi entusiasmo por seguir construyendo una carrera
-              sólida en tecnología.
+            Actualmente profundizo en ciberseguridad y entornos multinube, complementando el desarrollo con una mirada orientada a la protección de aplicaciones y datos. </p>
+
+            <p><span className="text-[#D9C7A2]">Participo activamente en comunidades técnicas y grupos de estudio, manteniendo un aprendizaje constante y colaborativo. .</span>
             </p>
           </motion.div>
         </div>
 
-        <motion.div id="habilidades"
+        <motion.div
+          id="habilidades"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}

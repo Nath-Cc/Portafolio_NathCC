@@ -110,10 +110,10 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <p className="text-xl md:text-2xl text-white/80 mb-4">
-            Desarrolladora Web Full Stack · Cloud Certified
+            Desarrolladora Web Full Stack · Cloud Certified · Security Dev
           </p>
           <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto mb-10">
-            Creando experiencias digitales seguras, limpias y elegantes.
+            Creando experiencias digitales seguras, limpias y funcionales.
             Apasionada por la nube, la ciberseguridad y el desarrollo web
             moderno.
           </p>
@@ -125,10 +125,10 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Link
-            href="/projects"
+            href="/about"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/50 hover:shadow-purple-400/70"
           >
-            Ver Proyectos
+            Whoami
             <ArrowRight size={20} />
           </Link>
 
